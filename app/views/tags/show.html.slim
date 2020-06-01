@@ -1,0 +1,19 @@
+p#notice = notice
+
+p
+  strong Tag:
+  = @tag.tag
+p
+  strong Status:
+  = @tag.status
+p
+  strong Low frequency tags:
+  = @tag.low_frequency_tags
+p
+  strong Middle frequency tags:
+  = @tag.middle_frequency_tags
+p
+  strong High frequency tags:
+  = @tag.high_frequency_tags
+
+= link_to 'Back', tags_path
