@@ -27,12 +27,11 @@
 
 .row
   .col
-    textarea.form-control.js-selected-tags.selected-tags
+    textarea.form-control.js-selected-tags.selected-tags(readonly)
 
 .row
   .col
     br
-    br
-    = link_to 'Back', tags_path
+    = link_to 'Back', tags_path, class: 'btn btn-lg btn-secondary'
 
 .js-tags-counter.tags-counter.bg-success 0

@@ -34,4 +34,9 @@ $(() => {
 
     $(this).toggleClass('badge-dark')
   })
+
+  $('.js-selected-tags').on('focus', function() {
+    $(this).select()
+    document.execCommand("copy")
+  })
 })
