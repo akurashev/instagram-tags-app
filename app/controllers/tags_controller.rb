@@ -16,12 +16,7 @@ class TagsController < ApplicationController
     @tag = Tag.new(tag_params)
 
     if @tag.save
-      low, middle, high = InstagramTagsSearcher.search(@tag.tag)
-      @tag.update!(
-        low_frequency_tags: low,
-        middle_frequency_tags: middle,
-        high_frequency_tags: high
-      )
+      TagsFetcherJob.perform_later(@tag.id)
 
       redirect_to @tag, notice: 'Tag was successfully created.'
     else
