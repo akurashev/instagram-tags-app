@@ -5,20 +5,12 @@ table
     tr
       th Tag
       th Status
-      th Low frequency tags
-      th Middle frequency tags
-      th High frequency tags
-      th
 
   tbody
     - @tags.each do |tag|
       tr
-        td = tag.tag
+        td = link_to tag.tag, tag
         td = tag.status
-        td = tag.low_frequency_tags
-        td = tag.middle_frequency_tags
-        td = tag.high_frequency_tags
-        td = link_to 'Show', tag
 
 br
 
