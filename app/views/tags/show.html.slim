@@ -1,19 +1,38 @@
-p#notice = notice
+.row
+  .col
+    p
+      strong Tag:
+      =< @tag.tag
 
-p
-  strong Tag:
-  = @tag.tag
-p
-  strong Status:
-  = @tag.status
-p
-  strong Low frequency tags:
-  = @tag.low_frequency_tags
-p
-  strong Middle frequency tags:
-  = @tag.middle_frequency_tags
-p
-  strong High frequency tags:
-  = @tag.high_frequency_tags
+.row
+  .col
+    p
+      strong Low frequency tags:
+      - (@tag.low_frequency_tags || []).each do |tag|
+        .badge.badge-danger.js-tag-to-select => tag
 
-= link_to 'Back', tags_path
+.row
+  .col
+    p
+      strong Middle frequency tags:
+      - (@tag.middle_frequency_tags || []).each do |tag|
+        .badge.badge-warning.js-tag-to-select => tag
+
+.row
+  .col
+    p
+      strong High frequency tags:
+      - (@tag.high_frequency_tags || []).each do |tag|
+        .badge.badge-success.js-tag-to-select => tag
+
+.row
+  .col
+    textarea.form-control.js-selected-tags.selected-tags
+
+.row
+  .col
+    br
+    br
+    = link_to 'Back', tags_path
+
+.js-tags-counter.tags-counter.bg-success 0

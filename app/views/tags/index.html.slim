@@ -1,17 +1,10 @@
-h1 Listing tags
-
-table
-  thead
-    tr
-      th Tag
-      th Status
-
+table.table
   tbody
     - @tags.each do |tag|
       tr
         td = link_to tag.tag, tag
-        td = tag.status
+        td
+          i.material-icons
+            = status_icon(tag)
 
-br
-
-= link_to 'New Tag', new_tag_path
+= link_to '+', new_tag_path, class: 'btn-success new-tag-button'

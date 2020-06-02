@@ -1,3 +1,26 @@
 .new-tag-page {
   height: 100%;
 }
+
+.new-tag-button,
+.tags-counter {
+  border-radius: 50%;
+  bottom: 10px;
+  color: #fff;
+  display: inline-block;
+  font-size: 32px;
+  height: 50px;
+  line-height: 46px;
+  position: fixed;
+  right: 10px;
+  text-align: center;
+  width: 50px;
+}
+
+.selected-tags {
+  height: 200px !important;
+}
+
+.badge {
+  cursor: pointer;
+}

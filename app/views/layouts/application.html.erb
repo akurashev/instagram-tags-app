@@ -10,11 +10,13 @@
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <%= javascript_pack_tag 'application' %>
   </head>
 
   <body>
-    <div class="container-fluid app-container">
+    <div class="container app-container">
       <%= yield %>
     </div>
   </body>

@@ -15,6 +15,8 @@ class TagsController < ApplicationController
   def create
     @tag = Tag.new(tag_params)
 
+    @tag.tag = sanitize_tag(@tag.tag)
+
     if @tag.save
       TagsFetcherJob.perform_later(@tag.id)
 
@@ -35,5 +37,10 @@ class TagsController < ApplicationController
       :tag, :status, :low_frequency_tags, :middle_frequency_tags,
       :high_frequency_tags
     )
+  end
+
+  def sanitize_tag(tag)
+    tag = tag[1..-1] if tag.start_with?('#')
+    CGI.escape(tag)
   end
 end

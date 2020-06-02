@@ -1,14 +1,6 @@
 class TagsFetcherJob < ApplicationJob
   queue_as :tags_fetcher
 
-  after_enqueue do |job|
-    Tag.find(job.arguments.first).status_enqueued!
-  end
-
-  after_perform do |job|
-    Tag.find(job.arguments.first).status_finished!
-  end
-
   def perform(tag_id)
     tag = Tag.find(tag_id)
 
@@ -19,7 +11,8 @@ class TagsFetcherJob < ApplicationJob
     tag.update!(
       low_frequency_tags: low,
       middle_frequency_tags: middle,
-      high_frequency_tags: high
+      high_frequency_tags: high,
+      status: :finished
     )
   end
 end
