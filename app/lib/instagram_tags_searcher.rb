@@ -10,6 +10,8 @@ module InstagramTagsSearcher
                       'Safari/537.36 Core/1.53.3357.400 QQBrowser/9.6.11858.400'
     }
     JSON::parse(URI.open(url, header).read)
+  rescue JSON::ParserError
+    nil
   end
 
   def self.from_top(tag, amount)
@@ -48,6 +50,8 @@ module InstagramTagsSearcher
 
   def self.from_first_comment(code)
     data = fetch_data("https://www.instagram.com/p/#{code}/?__a=1")
+
+    return [] if data.nil?
 
     comments_count = data['graphql']['shortcode_media']['edge_media_to_parent_comment']['count']
 
