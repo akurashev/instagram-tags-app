@@ -18,7 +18,7 @@ class TagsController < ApplicationController
     if @tag.save
       TagsFetcherJob.perform_later(@tag.id)
 
-      redirect_to @tag, notice: 'Tag was successfully created.'
+      redirect_to tags_path, notice: 'Tag was successfully created.'
     else
       render :new
     end

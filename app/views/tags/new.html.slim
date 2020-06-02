@@ -1,5 +1,10 @@
-h1 New tag
+.row.align-items-center.new-tag-page
+  .col
+    = form_for @tag, html: { class: 'text-center' } do |f|
+      .form-group
+        = f.text_field :tag, placeholder: 'Tag', class: 'form-control-lg', required: true
 
-== render 'form'
+      = f.submit class: 'btn btn-success btn-lg'
 
-= link_to 'Back', tags_path
+    .mt-5
+      = link_to 'Back', tags_path

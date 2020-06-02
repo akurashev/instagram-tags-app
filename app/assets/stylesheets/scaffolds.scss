@@ -1,3 +1,7 @@
+html, body {
+  height: 100%;
+}
+
 body {
   background-color: #fff;
   color: #333;
@@ -63,3 +67,7 @@ div.actions {
 
 label {
   display: block; }
+
+.app-container {
+  height: 100%;
+}

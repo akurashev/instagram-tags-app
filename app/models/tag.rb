@@ -5,4 +5,6 @@ class Tag < ApplicationRecord
          processing: 2,
          finished: 3
        }, _prefix: true
+
+  validates :tag, presence: true
 end
