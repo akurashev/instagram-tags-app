@@ -19,6 +19,8 @@ module InstagramTagsSearcher
     data = fetch_data("https://www.instagram.com/explore/tags/#{tag}/?__a=1")
     # posts_count = data['graphql']['hashtag']['edge_hashtag_to_media']['count'].to_i
 
+    return [[], []] if data.nil?
+
     moretags = []
     codes = []
 
