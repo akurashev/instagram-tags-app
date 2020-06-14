@@ -2,7 +2,7 @@ class TagsController < ApplicationController
   before_action :set_tag, only: [:show]
 
   def index
-    @tags = Tag.all
+    @tags = Tag.order(:id).all
   end
 
   def show
