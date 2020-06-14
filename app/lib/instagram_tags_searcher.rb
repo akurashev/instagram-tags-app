@@ -84,6 +84,8 @@ module InstagramTagsSearcher
         next
       end
 
+      next if data.nil?
+
       posts_count = data['graphql']['hashtag']['edge_hashtag_to_media']['count'].to_i
 
       if posts_count > amount[0] && posts_count <= amount[1]
